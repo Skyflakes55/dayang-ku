@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff3f2">
+  <meta name="description" content="A little corner of the internet made just for you. Happy 11th monthsary.">
+  <title>11 Months With You ♡</title>
+  <style>
+    :root{--rose:#d86f83;--deep:#8f3f58;--ink:#4c3440;--cream:#fff8f4;--pink:#ffe5e8;--gold:#d5a85e}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+    button{font:inherit}
+    .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px 20px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 20%,#fff 0,#fff5f2 45%,#fbe3e7 100%)}
+    .hero:before,.hero:after{content:"♡";position:absolute;color:#e9a8b4;opacity:.25;font-size:clamp(120px,25vw,280px);pointer-events:none}
+    .hero:before{top:-65px;left:-35px;transform:rotate(-18deg)}.hero:after{bottom:-95px;right:-20px;transform:rotate(16deg)}
+    .hero-inner{max-width:720px;position:relative;z-index:1}
+    .eyebrow{font:600 11px/1.4 Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:var(--deep)}
+    h1{font-size:clamp(46px,10vw,88px);line-height:.98;font-weight:400;margin:20px 0;color:var(--deep)}
+    .subtitle{font-size:clamp(17px,4vw,22px);line-height:1.7;max-width:550px;margin:0 auto 28px}
+    .primary,.soft-button{border:0;border-radius:999px;padding:14px 24px;background:var(--deep);color:white;cursor:pointer;box-shadow:0 8px 24px #8f3f5826;transition:.2s}
+    .primary:hover,.soft-button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .tiny{font:12px Arial,sans-serif;color:#956b78;margin-top:16px}
+    section{padding:76px 20px}
+    .section-inner{max-width:900px;margin:auto}
+    .section-kicker{text-align:center;font:600 10px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--rose)}
+    h2{text-align:center;font-weight:400;font-size:clamp(32px,7vw,48px);color:var(--deep);margin:12px 0 18px}
+    .intro{text-align:center;max-width:620px;margin:0 auto 34px;line-height:1.8;font-size:17px}
+    .letter-wrap{background:#fff;border:1px solid #f3d9dc;border-radius:22px;padding:clamp(24px,6vw,48px);max-width:680px;margin:0 auto;box-shadow:0 18px 50px #8f3f580c}
+    .letter{font-size:18px;line-height:1.9;white-space:pre-line}
+    .signature{font-style:italic;color:var(--deep);font-size:24px;margin-top:24px}
+    .surprise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:32px}
+    .surprise{background:#fff;border:1px solid #f3d9dc;border-radius:18px;padding:24px;text-align:center;min-height:190px;cursor:pointer;transition:.2s}
+    .surprise:hover{transform:translateY(-4px);box-shadow:0 12px 28px #8f3f5812}
+    .surprise .symbol{font-size:30px}.surprise h3{font-weight:400;color:var(--deep);font-size:22px;margin:12px 0 8px}
+    .surprise p{font:14px/1.6 Arial,sans-serif;color:#806b72;margin:0}
+    .reveal{display:none;margin-top:15px;padding-top:14px;border-top:1px solid #f2dfe2;font-size:16px;line-height:1.6;color:var(--deep)}
+    .surprise.open .reveal{display:block}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+    .photo-card{background:white;padding:10px;border:1px solid #f0dadd;border-radius:16px;box-shadow:0 8px 20px #8f3f580c}
+    .photo-frame{aspect-ratio:4/5;border-radius:10px;background:linear-gradient(145deg,#f8dce2,#fff2ed);display:grid;place-items:center;overflow:hidden;color:#9b6575;text-align:center;padding:12px}
+    .photo-frame img{width:100%;height:100%;object-fit:cover;display:none}
+    .photo-frame .placeholder{font:14px/1.5 Arial,sans-serif}
+    .photo-card label{display:block;text-align:center;font:12px Arial,sans-serif;color:var(--deep);padding:12px 4px 5px;cursor:pointer}
+    .photo-card input{display:none}
+    .reasons{max-width:680px;margin:28px auto 0;display:grid;gap:10px}
+    .reason{background:white;border:1px solid #f1dadd;border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:center;font-size:16px}
+    .reason span{color:var(--rose);font-size:20px}
+    .music-panel{text-align:center;background:#fff;border:1px solid #f1dadd;border-radius:22px;padding:30px;max-width:520px;margin:28px auto 0}
+    .music-note{font-size:32px;color:var(--rose)}
+    .music-status{font:12px Arial,sans-serif;color:#8e747d;margin:12px 0 18px}
+    .music-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+    .soft-button{background:#f8e5e8;color:var(--deep);box-shadow:none;border:1px solid #efd1d8}
+    footer{text-align:center;padding:45px 20px 60px;color:#9a7580;font-size:14px}
+    .heart{position:fixed;z-index:10;pointer-events:none;animation:floatUp 2.2s ease-out forwards;font-size:20px}
+    @keyframes floatUp{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translateY(-180px) translateX(var(--drift)) scale(1.5)}}
+    .modal{position:fixed;inset:0;background:#38232dcc;z-index:20;display:none;place-items:center;padding:20px}
+    .modal.show{display:grid}.modal-card{background:var(--cream);max-width:460px;width:100%;padding:34px 26px;border-radius:22px;text-align:center;position:relative}
+    .modal-card h3{font-size:30px;font-weight:400;color:var(--deep);margin:8px}
+    .modal-card p{line-height:1.8}.close{position:absolute;right:16px;top:12px;border:0;background:transparent;font-size:24px;color:var(--deep);cursor:pointer}
+    .envelope{width:150px;height:105px;margin:24px auto 28px;position:relative;cursor:pointer;filter:drop-shadow(0 10px 12px #8f3f5820)}
+    .env-body{position:absolute;inset:0;background:#e9a7b4;border-radius:7px}
+    .env-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:75px solid transparent;border-right:75px solid transparent;border-top:60px solid #d98296;transform-origin:top;transition:transform .5s;z-index:2}
+    .env-heart{position:absolute;z-index:3;top:39px;left:61px;font-size:28px;color:white}
+    .envelope.open .env-flap{transform:rotateX(180deg)}
+    @media(max-width:520px){section{padding:58px 17px}.letter{font-size:16px}.surprise{min-height:165px}}
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="eyebrow">A little something for you</div>
+      <h1>11 months<br>with you<span style="color:var(--rose)"> ♡</span></h1>
+      <p class="subtitle">11 months of little moments, unexpected laughs, and a love that keeps finding new ways to grow.</p>
+      <button class="primary" id="openLetter">Open your surprise</button>
+      <div class="tiny">Made with love, just for you · November 11, 2026</div>
+    </div>
+  </header>
+
+  <section id="letterSection">
+    <div class="section-inner">
+      <div class="section-kicker">A letter from me to you</div>
+      <h2>To my favorite person</h2>
+      <div class="letter-wrap">
+        <div class="letter">Happy 11th monthsary, my love.
+
+I made this little website because I wanted to give you something you can open anytime and remember how special you are to me.
+
+Thank you for being part of my days, for the conversations, the laughter, the small moments, and even the imperfect ones. I may not always have the perfect words, but I hope my actions keep showing you that you matter to me.
+
+Eleven months is another chapter in our story. I don't need every day to be perfect. I just want us to keep choosing each other, learning together, and making memories worth keeping.
+
+If you ever have a difficult day, come back here. Let this be a small reminder that someone is grateful to have you in his life.
+
+I love you. Here's to us, and to all the moments still waiting for us.</div>
+        <div class="signature">Always yours ♡</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff1f1" id="surprises">
+    <div class="section-inner">
+      <div class="section-kicker">There is more to discover</div>
+      <h2>Little surprises for you</h2>
+      <p class="intro">Tap each card. I left a few messages here, and each one is meant just for you.</p>
+      <div class="surprise-grid">
+        <article class="surprise" tabindex="0" role="button" aria-expanded="false">
+          <div class="symbol">♡</div><h3>When you doubt yourself</h3><p>Tap to open your reminder</p>
+          <div class="reveal">I hope you see even a little of what I see in you. You are more capable and more wonderful than you sometimes believe.</div>
+        </article>
+        <article class="surprise" tabindex="0" role="button" aria-expanded="false">
+          <div class="symbol">✦</div><h3>My favorite thing</h3><p>There is one thing I keep thinking about</p>
+          <div class="reveal">It's not just one thing. It's the way ordinary moments become memorable when I get to share them with you.</div>
+        </article>
+        <article class="surprise" tabindex="0" role="button" aria-expanded="false">
+          <div class="symbol">☾</div><h3>For your hard days</h3><p>A message to keep</p>
+          <div class="reveal">You don't have to pretend to be okay all the time. You can rest, take your time, and be yourself. You deserve patience and care.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="memories">
+    <div class="section-inner">
+      <div class="section-kicker">Our little timeline</div>
+      <h2>Moments worth keeping</h2>
+      <p class="intro">Add your favorite pictures in the frames below. The photos stay in the browser and are not uploaded anywhere.</p>
+      <div class="gallery">
+        <div class="photo-card"><div class="photo-frame"><img alt="Our memory one"><div class="placeholder">♡<br>Our first favorite memory</div></div><label>＋ Add a photo<input type="file" accept="image/*"></label></div>
+        <div class="photo-card"><div class="photo-frame"><img alt="Our memory two"><div class="placeholder">✦<br>A day I want to remember</div></div><label>＋ Add a photo<input type="file" accept="image/*"></label></div>
+        <div class="photo-card"><div class="photo-frame"><img alt="Our memory three"><div class="placeholder">☼<br>One of our happiest moments</div></div><label>＋ Add a photo<input type="file" accept="image/*"></label></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff1f1" id="reasons">
+    <div class="section-inner">
+      <div class="section-kicker">A list that could keep growing</div>
+      <h2>11 reasons I love you</h2>
+      <div class="reasons">
+        <div class="reason"><span>01</span> Your smile can change the mood of my day.</div>
+        <div class="reason"><span>02</span> I can be myself around you.</div>
+        <div class="reason"><span>03</span> You make ordinary moments feel important.</div>
+        <div class="reason"><span>04</span> I love hearing about the things on your mind.</div>
+        <div class="reason"><span>05</span> You have your own way of making me laugh.</div>
+        <div class="reason"><span>06</span> You remind me that love is in the little things.</div>
+        <div class="reason"><span>07</span> I get to learn something new about you.</div>
+        <div class="reason"><span>08</span> Your presence makes a difference in my life.</div>
+        <div class="reason"><span>09</span> I want to celebrate your wins, big and small.</div>
+        <div class="reason"><span>10</span> Even simple plans feel exciting with you.</div>
+        <div class="reason"><span>11</span> Because after these eleven months, I still choose you.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="section-inner">
+      <div class="section-kicker">Press play when you're ready</div>
+      <h2>A song for this moment</h2>
+      <p class="intro">I added a soft, original instrumental made for this little page. Let it play while you explore.</p>
+      <div class="music-panel">
+        <div class="music-note">♫</div>
+        <div style="font-size:20px;color:var(--deep)">Our little soundtrack</div>
+        <div class="music-status" id="musicStatus" aria-live="polite">Preparing the music…</div>
+        <div class="music-controls">
+          <button class="primary" id="playMusic" disabled>Loading…</button>
+          <button class="soft-button" id="stopMusic" disabled>Pause</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Made for you, with all my love. <span style="color:var(--rose)">♡</span><br>
+    <span style="font-size:11px">11 months down · more memories to make</span>
+  </footer>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <div style="font-size:34px;color:var(--rose)">♡</div>
+      <h3 id="modalTitle">One last little thing</h3>
+      <p>Out of all the people in this world, I'm glad our paths crossed. Thank you for being my person. Happy 11th monthsary.</p>
+      <button class="primary" id="heartBurst">Send me a little love</button>
+    </div>
+  </div>
+
+  <audio id="song" src="assets/our-song.wav" preload="auto" loop></audio>
+  <script>
+    const audio = document.getElementById('song');
+    const playBtn = document.getElementById('playMusic');
+    const stopBtn = document.getElementById('stopMusic');
+    const statusText = document.getElementById('musicStatus');
+    let pageReady = false, musicReady = false;
+
+    // Wait for the page and its local resources before enabling the music control.
+    window.addEventListener('load', () => {
+      pageReady = true;
+      checkMusicReady();
+    });
+    function checkMusicReady() {
+      if (pageReady && audio.readyState >= 3) {
+        musicReady = true;
+        playBtn.disabled = false;
+        playBtn.textContent = '▶ Play our song';
+        statusText.textContent = 'Everything is ready. Tap play whenever you like.';
+      }
+    }
+    audio.addEventListener('canplaythrough', checkMusicReady);
+    audio.addEventListener('canplay', checkMusicReady);
+    audio.addEventListener('error', () => {
+      statusText.textContent = 'The music file could not load. Check assets/our-song.wav.';
+    });
+    // Fallback for browsers that report enough buffered data without canplaythrough.
+    audio.addEventListener('loadeddata', checkMusicReady);
+
+    playBtn.addEventListener('click', async () => {
+      if (!musicReady) return;
+      try {
+        await audio.play();
+        playBtn.textContent = '♫ Playing';
+        statusText.textContent = 'Enjoy the music while you explore.';
+        stopBtn.disabled = false;
+      } catch (e) {
+        statusText.textContent = 'Tap play again to start the music.';
+      }
+    });
+    stopBtn.addEventListener('click', () => {
+      audio.pause();
+      playBtn.textContent = '▶ Play our song';
+      statusText.textContent = 'Paused. The music is here whenever you want it.';
+    });
+
+    document.getElementById('openLetter').addEventListener('click', () => {
+      document.getElementById('letterSection').scrollIntoView({behavior:'smooth'});
+      heartBurst(18);
+    });
+    document.querySelectorAll('.surprise').forEach(card => {
+      const toggle = () => {
+        card.classList.toggle('open');
+        card.setAttribute('aria-expanded', card.classList.contains('open'));
+        heartBurst(5);
+      };
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+    document.querySelectorAll('.photo-card input').forEach(input => {
+      input.addEventListener('change', () => {
+        const file = input.files && input.files[0];
+        if (!file) return;
+        const frame = input.closest('.photo-card').querySelector('.photo-frame');
+        const img = frame.querySelector('img');
+        const placeholder = frame.querySelector('.placeholder');
+        const reader = new FileReader();
+        reader.onload = e => { img.src = e.target.result; img.style.display = 'block'; placeholder.style.display = 'none'; };
+        reader.readAsDataURL(file);
+      });
+    });
+    function heartBurst(count=12) {
+      for (let i=0;i<count;i++) {
+        const h=document.createElement('div');
+        h.className='heart'; h.textContent=['♡','♥','✦'][Math.floor(Math.random()*3)];
+        h.style.left=(10+Math.random()*80)+'vw';
+        h.style.top=(65+Math.random()*25)+'vh';
+        h.style.color=['#d86f83','#b85c78','#d5a85e'][Math.floor(Math.random()*3)];
+        h.style.setProperty('--drift',((Math.random()-.5)*130)+'px');
+        document.body.appendChild(h); setTimeout(()=>h.remove(),2300);
+      }
+    }
+    const modal=document.getElementById('modal');
+    document.getElementById('heartBurst').addEventListener('click',()=>heartBurst(28));
+    document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('show'));
+    // Reveal the final surprise after she has explored the page for a little while.
+    let surpriseShown=false;
+    window.addEventListener('scroll',()=>{
+      if(!surpriseShown && window.scrollY > document.body.scrollHeight*.58){
+        surpriseShown=true;
+        setTimeout(()=>modal.classList.add('show'),900);
+      }
+    },{passive:true});
+  </script>
+</body>
+</html>
